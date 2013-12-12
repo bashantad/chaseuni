@@ -33,6 +33,7 @@ group :doc do
 end
 group :development do
   gem 'capistrano', '~> 2.15'
+  gem 'rvm-capistrano'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
