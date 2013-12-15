@@ -5,6 +5,9 @@ gem 'rails', '4.0.1'
 
 # Use postgresql as the database for Active Record
 gem 'mysql2'
+gem 'pg'
+gem 'anjlab-bootstrap-rails', '~> 3.0.3.0', :require => 'bootstrap-rails'
+gem 'devise'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
