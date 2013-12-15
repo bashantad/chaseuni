@@ -3,7 +3,7 @@ require "rvm/capistrano"
 
 server "106.186.30.230", :web, :app, :db, primary: true
 
-set :application, "test-deploy"
+set :application, "chaseuni"
 set :user, "bash"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache

@@ -1,4 +1,4 @@
-root = "/home/bash/apps/test-deploy/current"
+root = "/home/bash/apps/chaseuni/current"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"
