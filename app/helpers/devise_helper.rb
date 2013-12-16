@@ -1,7 +1,7 @@
 module DeviseHelper
   def devise_errors
     if resource.errors.empty?
-      return ""
+      return nil
     else
       return resource.errors.messages
     end

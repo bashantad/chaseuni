@@ -3,16 +3,17 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 
 	<%error=devise_errors%>
+	
 	<div class="form-item">
 		<%=f.label :full_name%>
 		<%=f.text_field :full_name, :autofocus => true%>
-		<% if error && error[:full_name].present?%>
-			<div class="text-error"><%=error[:full_name]%> </div>
+		<% if error && error[:full_name].present? %>
+			<div class="text-error"><%=error[:full_name][0]%> </div>
 		<%end%>
 	</div>
 	<div class="form-item">
 		<%= f.label :email %>
-		<%= f.email_field :email, :autofocus => true, : %>
+		<%= f.email_field :email, :autofocus => true, :class => "input-block-level" %>
 		<% if error && error[:email].present?%>
 			<div class="text-error">
 				<%=error[:email][0]%>

@@ -224,6 +224,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   pg
+  pry
   rails (= 4.0.1)
   rspec
   rspec-rails
