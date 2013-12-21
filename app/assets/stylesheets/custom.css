@@ -1,3 +1,22 @@
 .form-item{
 	padding:10px;
 }
+.form-item label{
+	display:block;
+}
+.hero-unit.jumbotron{
+	padding:0px;
+}
+.hero-title{
+	background:#888;
+	text-align:center;
+	color:#fff;
+}
+.hero-description{
+	padding:10px;
+	font-size:14px;
+}
+
+.hero-caption{
+	font-weight:italic;
+}

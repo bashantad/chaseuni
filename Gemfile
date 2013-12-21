@@ -9,6 +9,7 @@ gem 'pg'
 gem 'anjlab-bootstrap-rails', '~> 3.0.3.0', :require => 'bootstrap-rails'
 gem 'devise'
 gem 'pry'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -47,6 +48,7 @@ group :test do
   gem 'guard-rspec', require: false
   gem 'spork', '~> 1.0rc'
   gem 'guard-spork'
+  gem 'shoulda-matchers'
 end
 
 group :development do

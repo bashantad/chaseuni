@@ -1,0 +1,32 @@
+<%= form_for(@course) do |f| %>
+  <% if @course.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h4>
+      <ul>
+      <% @course.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-item">
+    <%= f.label :title %>
+    <%= f.text_field :title, :class => "form-control" %>
+  </div>
+  <div class="form-item">
+    <%= f.label :description %>
+    <%= f.text_area :description, :class => "form-control", :rows => 6 %>
+  </div>
+  <div class="form-item">
+    <%= f.label :level %>
+    <%= f.number_field :level, :class => "form-control" %>
+  </div>
+  <div class="form-item">
+    <%= f.label :faculty_id %>
+    <%= f.select :faculty_id, options_for_select(@faculties),{},{ :class => "form-control"} %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit", :class =>"btn btn-primary" %>
+  </div>
+<% end %>

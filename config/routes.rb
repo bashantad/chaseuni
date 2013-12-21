@@ -1,7 +1,11 @@
 Chaseuni::Application.routes.draw do
+  resources :courses
+
+  resources :faculties
+
   resources :pages
    
-   root :to => 'pages#index'
+  root :to => 'courses#index'
   
   devise_for :users, :controllers => {
     :registrations => 'registrations',

@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="col-xs-3">
+		<h3>Faculties</h3>
+		<div id="all-faculty">
+			<%@faculties.each do |faculty|%>
+			<div class="checkbox">
+				<input type="checkbox" class="faculty" value="<%=faculty.id%>"> <%=faculty.title%>
+			</div>
+			<%end%>
+		</div>
+	</div>
+	<div class="col-xs-9">
+		<h3>Listing courses</h3>
+	<%= link_to 'Create a new course', new_course_path %>
+	<%@courses.each do |course|%>
+	<div class="hero-unit jumbotron">
+		<div class="hero-title">
+			<%= course.title %>
+		</div>
+		<div class="hero-description">
+			<%= course.description %>
+			<div class="hero-caption">
+				<div class="control-group clearfix">
+					<div class="pull-left">Faculty : <%= course.faculty.title %></div>
+					<div class="pull-right">Dificulty level : <%= course.level %>  <%= link_to 'View', course %></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<%end%>
+	</div>
+</div>
+
+
