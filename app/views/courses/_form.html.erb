@@ -27,6 +27,6 @@
     <%= f.select :faculty_id, options_for_select(@faculties),{},{ :class => "form-control"} %>
   </div>
   <div class="actions">
-    <%= f.submit "Submit", :class =>"btn btn-primary" %>
+    <%= f.submit(:class =>"btn btn-primary") %>
   </div>
 <% end %>

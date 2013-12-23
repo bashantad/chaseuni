@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @faculty.title %>
@@ -11,4 +9,5 @@
 </p>
 
 <%= link_to 'Edit', edit_faculty_path(@faculty) %> |
+<%= link_to 'Delete', @faculty, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', faculties_path %>

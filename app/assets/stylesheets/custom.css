@@ -20,3 +20,13 @@
 .hero-caption{
 	font-weight:italic;
 }
+
+.text-error{
+	color:#DE0B63;
+}
+.panel-primary{
+	border-color:#DDD;
+}
+ul.login-footer li{
+	list-style:none;
+}

@@ -1,5 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<% content_for :heading, "Edit in #{resource_name.to_s.humanize}" %>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
 	<%= devise_error_messages! %>
 
@@ -14,17 +13,17 @@
 
 	<div class="form-item">
 		<%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
-		<%= f.password_field :password, :autocomplete => "off" %>
+		<%= f.password_field :password, :autocomplete => "off", :class => "form-control" %>
 	</div>
 
 	<div class="form-item">
 		<%= f.label :password_confirmation %>
-		<%= f.password_field :password_confirmation %>
+		<%= f.password_field :password_confirmation, :class => "form-control" %>
 	</div>
 
 	<div class="form-item">
 		<%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
-		<%= f.password_field :current_password %>
+		<%= f.password_field :current_password, :class => "form-control" %>
 	</div>
 
 	<div class="form-item">

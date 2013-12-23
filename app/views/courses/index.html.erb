@@ -11,24 +11,20 @@
 	</div>
 	<div class="col-xs-9">
 		<h3>Listing courses</h3>
-	<%= link_to 'Create a new course', new_course_path %>
-	<%@courses.each do |course|%>
-	<div class="hero-unit jumbotron">
-		<div class="hero-title">
-			<%= course.title %>
-		</div>
-		<div class="hero-description">
-			<%= course.description %>
-			<div class="hero-caption">
+		<%@courses.each do |course|%>
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title"><%= course.title %></h3>
+			</div>
+			<div class="panel-body">
+				<%= course.description %>
 				<div class="control-group clearfix">
 					<div class="pull-left">Faculty : <%= course.faculty.title %></div>
 					<div class="pull-right">Dificulty level : <%= course.level %>  <%= link_to 'View', course %></div>
 				</div>
 			</div>
 		</div>
-
-	</div>
-	<%end%>
+		<%end%>
 	</div>
 </div>
 
