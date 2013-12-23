@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all.paginate(:page => params[:page], :per_page => 10)
+    @courses = Course.all #.paginate(:page => params[:page], :per_page => 10)
     @faculties = Faculty.all
   end
 

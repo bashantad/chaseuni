@@ -4,8 +4,14 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.1'
 
 # Use postgresql as the database for Active Record
-gem 'mysql2'
-gem 'pg'
+group :production do
+  gem 'mysql2'
+end
+
+group :development, :test do
+  gem 'pg'
+end
+
 gem 'anjlab-bootstrap-rails', '~> 3.0.3.0', :require => 'bootstrap-rails'
 gem 'devise'
 gem 'pry'
