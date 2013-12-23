@@ -20,9 +20,9 @@
 </p>
 
 <p>
-  <strong>Created by:</strong>
-  <%= @course.user.full_name %>
+	<%=link_to "Exams", course_exams_path(@course)%>
 </p>
+
 </div>
 <%= link_to 'Back', courses_path %> |
 <%= link_to 'Edit', edit_course_path(@course) %> |

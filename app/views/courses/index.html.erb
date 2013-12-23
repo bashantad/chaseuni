@@ -17,7 +17,9 @@
 				<h3 class="panel-title"><%= course.title %></h3>
 			</div>
 			<div class="panel-body">
-				<%= course.description %>
+				<div class="justify">
+					<%= course.description %>
+				</div>
 				<div class="control-group clearfix">
 					<div class="pull-left">Faculty : <%= course.faculty.title %></div>
 					<div class="pull-right">Dificulty level : <%= course.level %>  <%= link_to 'View', course %></div>

@@ -1,0 +1,28 @@
+<p>
+  <strong>Name:</strong>
+  <%= @exam.name %>
+</p>
+
+<p>
+	<strong>No of questions:</strong>
+	<%=@exam.no_of_questions%>
+</p>
+
+<p>
+	<strong>No of questions:</strong>
+	<%=@exam.full_mark%>
+</p>
+
+<p>
+  <strong>Exam type:</strong>
+  <%= @exam.exam_type %>
+</p>
+
+<p>
+  <strong>Difficulty level:</strong>
+  <%= @exam.difficulty_level %>
+</p>
+
+
+<%= link_to 'Edit', edit_course_exam_path(@exam.course_id, @exam.id) %> |
+<%= link_to 'Back', course_exams_path(@exam.course_id) %>

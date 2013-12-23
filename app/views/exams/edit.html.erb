@@ -1,0 +1,6 @@
+<h2>Editing exam</h2>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', course_exam_path(@exam.course_id, @exam) %> |
+<%= link_to 'Back', course_exams_path(@exam.course_id) %>

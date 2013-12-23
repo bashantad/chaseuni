@@ -1,5 +1,8 @@
 Chaseuni::Application.routes.draw do
-  resources :courses
+  
+  resources :courses do
+    resources :exams
+  end
 
   resources :faculties
 

@@ -1,0 +1,50 @@
+<% if params[:action] == "edit" %>
+	<% action = course_exam_path(@exam.course_id, @exam.id) %>
+	<%method = "put"%>
+<% else %>
+	<% action =  course_exams_path(params[:course_id]) %>
+	<%method = "post"%>
+<% end %>
+
+<%= form_for @exam, :as => :exam, :url => action, :method => method do |f| %>
+  <% if @exam.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@exam.errors.count, "error") %> prohibited this exam from being saved:</h4>
+
+      <ul>
+      <% @exam.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<%=f.hidden_field "course_id"%>
+	
+  <div class="form-item">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "form-control" %>
+  </div>
+
+  <div class="form-item">
+    <%= f.label :no_of_questions %>
+    <%= f.text_field :no_of_questions, :class => "form-control" %>
+  </div>
+
+ <div class="form-item">
+    <%= f.label :full_mark %>
+    <%= f.text_field :full_mark, :class => "form-control" %>
+  </div>
+
+  <div class="form-item">
+    <%= f.label :exam_type %>
+	<%= f.select :exam_type, options_for_select(@exam_types),{},{ :class => "form-control"} %>
+  </div>
+  <div class="form-item">
+    <%= f.label :difficulty_level %>
+	<%= f.select :difficulty_level, options_for_select(@exam_levels),{},{ :class => "form-control"} %>
+  </div>
+  <div class="actions">
+    <%= f.submit(:class => "btn btn-primary") %>
+  </div>
+<% end %>
