@@ -9,7 +9,7 @@ gem 'pg'
 gem 'anjlab-bootstrap-rails', '~> 3.0.3.0', :require => 'bootstrap-rails'
 gem 'devise'
 gem 'pry'
-
+gem 'will_paginate-bootstrap'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
