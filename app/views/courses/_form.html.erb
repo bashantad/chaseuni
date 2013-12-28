@@ -24,7 +24,7 @@
   </div>
   <div class="form-item">
     <%= f.label :faculty_id %>
-    <%= f.select :faculty_id, options_for_select(@faculties, @course.faculty.id),{},{ :class => "form-control"} %>
+    <%= f.select :faculty_id, options_for_select(@faculties, !@course.faculty.blank? ? @course.faculty.id : " "),{},{ :class => "form-control"} %>
   </div>
   <div class="actions">
     <%= f.submit(:class =>"btn btn-primary") %>
