@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131223095701) do
+ActiveRecord::Schema.define(version: 20131228064946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 20131223095701) do
 
   add_index "courses", ["faculty_id"], name: "index_courses_on_faculty_id", using: :btree
   add_index "courses", ["user_id"], name: "index_courses_on_user_id", using: :btree
+
+  create_table "enrollments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "enrollments", ["course_id"], name: "index_enrollments_on_course_id", using: :btree
+  add_index "enrollments", ["user_id"], name: "index_enrollments_on_user_id", using: :btree
 
   create_table "exams", force: true do |t|
     t.string   "name"
@@ -117,6 +127,33 @@ ActiveRecord::Schema.define(version: 20131223095701) do
     t.string   "middle_name"
   end
 
+  create_table "questions", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.boolean  "is_multiple_choice"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["course_id"], name: "index_questions_on_course_id", using: :btree
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
+
+  create_table "results", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.integer  "exam_id"
+    t.float    "mark"
+    t.boolean  "is_private", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "results", ["course_id"], name: "index_results_on_course_id", using: :btree
+  add_index "results", ["exam_id"], name: "index_results_on_exam_id", using: :btree
+  add_index "results", ["user_id"], name: "index_results_on_user_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -131,8 +168,12 @@ ActiveRecord::Schema.define(version: 20131223095701) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "full_name"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 

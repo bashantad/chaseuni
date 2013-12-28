@@ -15,13 +15,22 @@
 </p>
 
 <p>
-  <strong>Faculty:</strong>
-  <%= @course.faculty.title %>
+	<strong>Faculty:</strong>
+	<%= @course.faculty.title %>
 </p>
+<div class="control-group clearfix">
+	<div class="pull-left">
+		<%if !@isEnrolled%>
+		<%=form_tag enroll_course_path(@course), :method => :post do%>
+		<input type="submit" name="submit" value="Enrol in this course" class="btn btn-primary">
+		<% end %>
+		<%end%>
+	</div>
 
-<p>
-	<%=link_to "Exams", course_exams_path(@course)%>
-</p>
+	<div class="pull-right">
+		<%=link_to "Exams", course_exams_path(@course)%>
+	</div>
+</div>
 
 </div>
 <%= link_to 'Back', courses_path %> |

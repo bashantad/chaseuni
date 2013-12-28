@@ -1,0 +1,35 @@
+<%= form_for(@question) do |f| %>
+<% if @question.errors.any? %>
+<div class="alert alert-danger">
+	<h4><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h4>
+
+	<ul>
+		<% @question.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="form-item">
+	<%= f.label :title %>
+	<%= f.text_field :title, :class => "form-control" %>
+</div>
+<div class="form-item">
+	<%= f.label :description %>
+	<%= f.text_area :description, :class => "form-control", :rows => 4 %>
+</div>
+
+<div class="form-item">
+	<%= f.label :course_id %>
+	<%= f.select :course_id, options_for_select(@courses, @question.course_id),{},{ :class => "form-control"} %>
+</div>
+<%if !@question.is_multiple_choice%>
+<div class="form-item">
+	<%= f.check_box :is_multiple_choice %> Is multiple choice question?
+</div>
+<%end%>
+<div class="actions">
+	<%= f.submit(:class => "btn btn-primary") %>
+</div>
+<% end %>

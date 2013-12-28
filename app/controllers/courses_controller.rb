@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :enroll]
   before_action :set_faculties, only: [:new, :edit, :update, :create]
   
   # GET /courses
@@ -12,6 +12,7 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @isEnrolled = Enrollment.isEnrolled(current_user, @course)
   end
 
   # GET /courses/new
@@ -61,6 +62,20 @@ class CoursesController < ApplicationController
       format.html { redirect_to courses_url }
       format.json { head :no_content }
     end
+  end
+
+  def enroll
+    if Enrollment.isEnrolled(current_user, @course)
+      redirect_to courses_path, alert: 'You have already enrolled in this course.'
+    else
+      current_user.enrollments.create(:course_id => @course.id)
+      redirect_to courses_path, notice: 'You have successfully enrolled in the course.'
+    end
+  end
+
+  def enrollments
+    @courses = current_user.courses
+    @results = current_user.results
   end
 
   private

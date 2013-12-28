@@ -1,7 +1,16 @@
 Chaseuni::Application.routes.draw do
   
+  resources :questions
+
+  get 'enrollments', to: 'courses#enrollments'
+  
   resources :courses do
+    member do
+      post 'enroll'
+
+    end
     resources :exams
+
   end
 
   resources :faculties

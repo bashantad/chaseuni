@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
   validates :full_name, :presence => true         
   has_many :courses
   has_many :exams
+  has_many :results
+  has_many :enrollments
+  has_many :courses, :through => :enrollments
+  has_many :questions
 end

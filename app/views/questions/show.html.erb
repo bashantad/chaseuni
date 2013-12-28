@@ -1,0 +1,22 @@
+<p>
+  <strong>Title:</strong>
+  <%= @question.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @question.description %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @question.course.title %>
+</p>
+
+<p>
+  <strong>Is multiple choice:</strong>
+  <%= @question.is_multiple_choice %>
+</p>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>
