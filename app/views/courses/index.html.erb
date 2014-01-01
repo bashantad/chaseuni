@@ -3,8 +3,10 @@
 		<h3>Faculties</h3>
 		<div id="all-faculty">
 			<%@faculties.each do |faculty|%>
-			<div class="checkbox">
+			<div class="faculties">
+			<label>
 				<input type="checkbox" class="faculty" value="<%=faculty.id%>"> <%=faculty.title%>
+			</label>
 			</div>
 			<%end%>
 		</div>

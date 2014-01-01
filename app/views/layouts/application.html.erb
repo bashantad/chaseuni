@@ -7,84 +7,75 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container" id="container">
-	<nav class="navbar navbar-default" role="navigation">
-	  <!-- Brand and toggle get grouped for better mobile display -->
-	  <div class="navbar-header">
-	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	      <span class="sr-only">Toggle navigation</span>
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	    </button>
-	    <a class="navbar-brand" href="/">Chaseuni</a>
-	  </div>
-
-	  <!-- Collect the nav links, forms, and other content for toggling -->
-	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	    <ul class="nav navbar-nav">
-	      <li><%=link_to "My enrollments", enrollments_path%></li>
-		 <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Faculties <b class="caret"></b></a>
-	        <ul class="dropdown-menu">
-	          <li><%=link_to "List all faculties", faculties_path%></li>
-	          <li><%=link_to "Create a new faculty", new_faculty_path%></li>
-	        </ul>
-		</li>
-		
-	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Courses <b class="caret"></b></a>
-	        <ul class="dropdown-menu">
-	          <li><%=link_to "List all courses", courses_path%></li>
-	          <li><%=link_to "Create a new course", new_course_path%></li>
-	          <li><a href="#">Dummy link3</a></li>
-	          <li class="divider"></li>
-	          <li><a href="#">Dummy link4</a></li>
-	        </ul>
-	      </li>
-		<li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Questions <b class="caret"></b></a>
-	        <ul class="dropdown-menu">
-	          <li><%=link_to "List all questions", questions_path%></li>
-	          <li><%=link_to "Create a new question", new_question_path%></li>
-	        </ul>
-		</li>
-	    </ul>
-	    <ul class="nav navbar-nav navbar-right">
-	      <li>
-	      	<%if user_signed_in?%>
-				<%=link_to "logout",destroy_user_session_path, :method => 'delete' %>
-			<%end%>
-	      </li>
-		<!--
-	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-	        <ul class="dropdown-menu">
-	          <li><a href="#">Action</a></li>
-	          <li><a href="#">Another action</a></li>
-	          <li><a href="#">Something else here</a></li>
-	          <li class="divider"></li>
-	          <li><a href="#">Separated link</a></li>
-	        </ul>
-	      </li>
-		-->
-	    </ul>
-	  </div><!-- /.navbar-collapse -->
-	</nav>
+	<header id="header" class="navbar navbar-fixed-top bg-white box-shadow" data-offset-top="1" data-spy="affix">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">
+				<%= image_tag("logo.png", :alt => "Chaseuni") %>
+			</a>
+		 	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		      <span class="sr-only">Toggle navigation</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+		 </div>
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse">
+		    <ul class="nav navbar-nav navbar-right">
+				 <li><%=link_to "My enrollments", enrollments_path%></li>
+				 <li class="dropdown">
+			        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Faculties <b class="caret"></b></a>
+			        <ul class="dropdown-menu">
+			          <li><%=link_to "List all faculties", faculties_path%></li>
+			          <li><%=link_to "Create a new faculty", new_faculty_path%></li>
+			        </ul>
+				</li>
+				<li class="dropdown">
+			        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Questions <b class="caret"></b></a>
+			        <ul class="dropdown-menu">
+			          <li><%=link_to "List all questions", questions_path%></li>
+			          <li><%=link_to "Create a new question", new_question_path%></li>
+			        </ul>
+				</li>
+			     <li class="dropdown">
+		        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Courses <b class="caret"></b></a>
+		        <ul class="dropdown-menu">
+		          <li><%=link_to "List all courses", courses_path%></li>
+		          <li><%=link_to "Create a new course", new_course_path%></li>
+		          <li><a href="#">Dummy link3</a></li>
+		          <li class="divider"></li>
+		          <li><a href="#">Dummy link4</a></li>
+		        </ul>
+		      </li>
+		      <li>
+		      	<%= @user_email  %>
+		      </li>
+		      <li>
+		      	<%if user_signed_in?%>
+					<%=link_to "logout",destroy_user_session_path, :method => 'delete' %>
+				<%end%>
+		      </li>
+		    </ul>
+		  </div><!-- /.navbar-collapse -->
+	</div>
+</header>
+<section id="content">
 	<% if notice %>
 	<div class="alert alert-info"><%= notice %></div>
 	<% end %>
 	<% if alert %>
 	<div class="alert alert-danger"><%= alert %></div>
 	<% end %>
-	<div class="row container">
+	<div class="bg-gray">
+		<div class="container container-sh" >
 		<%if user_signed_in?%>
 			<%= yield %>
 		<%else%>
-		<div class="col-md-offset-3 col-md-6">
+		<div class="pull-right col-md-3">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-		    <h3 class="panel-title text-center"><%=yield(:heading)%></h3>
+		    <h3 class="panel-title"><i class="fa fa-user"></i> <%=yield(:heading)%></h3>
 		  </div>
 		  <div class="panel-body">
 		   <%=yield%>
@@ -95,7 +86,8 @@
 		</div>
 		</div>
 		<%end%>
-	</div>
+		</div>
+		</div>	
 </div>
 </body>
 </html>
