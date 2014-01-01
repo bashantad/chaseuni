@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/new
   def new
-    @course = current_user.courses.new
+    @course = Course.new
   end
 
   # GET /courses/1/edit
@@ -27,7 +27,7 @@ class CoursesController < ApplicationController
   # POST /courses
   # POST /courses.json
   def create
-    @course = current_user.courses.new(course_params)
+    @course = Course.new(course_params)
 
     respond_to do |format|
       if @course.save
