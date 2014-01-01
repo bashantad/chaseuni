@@ -1,4 +1,5 @@
 body{
+	background-color: rgb(241,241,241);
 	background-color: rgba(241,241,241,0.9);
 }
 
@@ -51,6 +52,7 @@ ul.login-footer li{
 }
 
 .box-shadow {
+	box-shadow:rgb(0,0,0);
 	box-shadow: 0 1px 3px rgba(0, 0, 0 0.05);
 }
 .bg-white {
@@ -58,12 +60,14 @@ ul.login-footer li{
 	color: #717171;
 }
 .bg-gray{
+	background-color:rgb(241,241,241);
 	background-color: rgba(241,241,241,0.9);
 }
 #content{
 	display: table;
 	width: 100%;
 	height: 100%;
+	background-color:rgb(241,241,241);
 	background-color: rgba(241,241,241,0.9);
 }
 .faculties{
